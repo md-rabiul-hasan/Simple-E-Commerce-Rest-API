@@ -12,6 +12,25 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderStoreController extends Controller
 {
+    /**
+     * Order Reqeust
+     * @authenticated
+     * @header Authorization bearer your-token
+     * @responseField success The success of this API response is (`true` or `false`).
+     * 
+     * @bodyParam  amount decimal required. Example: 1000.00
+     * @bodyParam  shipping_address text required. Example: IBCS-Primax
+     * @bodyParam  items array required. Example:  [{  "product_id" : "2", "qty": 2, "price": 10.00 }]
+     * @response 200{
+     *      "success": true,
+     *      "status": 200,
+     *       "message": "Order Confirmed Successfully",
+     *       "data": {
+     *           "order_tracking_no": "62003816439d2"
+     *      }
+     *  }
+     * 
+     */
     public function store(OrderStoreRequest $request){
         $unique_order_tracking_no = uniqid();
         $order                    = new Order();

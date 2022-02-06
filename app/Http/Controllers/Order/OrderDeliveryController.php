@@ -12,6 +12,28 @@ use Illuminate\Http\Request;
 
 class OrderDeliveryController extends Controller
 {
+     /**
+     * Order Delivery
+     * @authenticated
+     * @header Authorization bearer your-token
+     * @responseField success The success of this API response is (`true` or `false`).
+     * 
+     * @bodyParam  order_tracking_no string required. Every order tracking number is unique Example: 62003816439d2
+     * @response 200{
+     *      "success": true,
+     *      "status": 200,
+     *      "message": "Order Delivery Successfully",
+     *      "data": {
+     *          "order_tracking_no": "62003816439d2"
+     *      }
+     *   }
+     * @response 400{
+     *       "success": false,
+     *       "status": 400,
+     *       "message": "In this order all product doesn't available in stock"
+     *   }
+     * 
+     */
     public function delivery(OrderActionRequest $request){
         $order_tracking_no = $request->input('order_tracking_no');        
         try{
