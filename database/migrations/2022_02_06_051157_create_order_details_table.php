@@ -19,6 +19,7 @@ class CreateOrderDetailsTable extends Migration
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->decimal('price', 10, 2)->default(0.00);
             $table->integer('qty');
+            $table->tinyInteger('status')->default(0)->comment('0: pending order, 1: delivery order');
             $table->timestamps();
         });
     }

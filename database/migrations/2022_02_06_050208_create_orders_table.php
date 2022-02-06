@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->text('shipping_address');
             $table->string('order_tracking_no')->unique();
             $table->date('date');
-            $table->tinyInteger('status')->default(0)->comment('0: pending order, 1: approved order, 2: rejected order');
+            $table->tinyInteger('status')->default(0)->comment('0: pending order, 1: approved order, 2: rejected order, 3: delivery order');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

@@ -3,6 +3,10 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Customer\RegistrationController;
+use App\Http\Controllers\Order\OrderActionController;
+use App\Http\Controllers\Order\OrderApprovedController;
+use App\Http\Controllers\Order\OrderDeliveryController;
+use App\Http\Controllers\Order\OrderRejectedController;
 use App\Http\Controllers\Order\OrderStoreController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductShowController;
@@ -48,5 +52,9 @@ Route::group(['namespace' => 'Product', 'prefix' => 'product', 'as' => 'product.
 
 
 Route::group(['namespace' => 'Order', 'prefix' => 'order', 'middleware' => 'auth:api', 'as' => 'order.'], function(){
-    Route::get('store', [OrderStoreController::class, 'store'])->name('store');
+    Route:: post('store', [OrderStoreController::class, 'store'])->name('store');
+    Route:: post('approved', [OrderApprovedController::class, 'approved'])->name('approved');
+    Route:: post('rejected', [OrderRejectedController::class, 'rejected'])->name('rejected');
+    Route:: post('delivery', [OrderDeliveryController::class, 'delivery'])->name('delivery');
+    
 });

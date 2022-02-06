@@ -25,7 +25,7 @@ class OrderStoreController extends Controller
             $order->save();
             $this->insertOrderDetails($order->id, $request->input('items')); // insert order details
             $this->orderHistory($order->order_tracking_no, "Order Confirmed"); // insert order log
-            return $this->successApiResponse(200, 'Product Store Successfully', ["order_tracking_no" => $order->order_tracking_no]);
+            return $this->successApiResponse(200, 'Order Confirmed Successfully', ["order_tracking_no" => $order->order_tracking_no]);
         }catch(Exception $e){
             return $this->failedApiResponse(500, $e->getMessage());
         }
