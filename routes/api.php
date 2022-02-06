@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Customer\RegistrationController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Product\ProductShowController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,4 +38,7 @@ Route::group(['namespace' => 'Product', 'prefix' => 'product', 'as' => 'product.
     Route:: get('{product}/show', [ProductController::class, 'show'])->name('show');
     Route:: post('{product}/update', [ProductController::class, 'update'])->name('update');
     Route:: get('{product}/delete', [ProductController::class, 'delete'])->name('delete');
+
+    Route::get('index', [ProductShowController::class, 'index'])->name('index');
 });
+
