@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Customer\RegistrationController;
+use App\Http\Controllers\Order\OrderStoreController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductShowController;
 use Illuminate\Http\Request;
@@ -45,3 +46,7 @@ Route::group(['namespace' => 'Product', 'prefix' => 'product', 'as' => 'product.
     Route::get('sorting/lowest-to-highest', [ProductShowController::class, 'lowestToHighest'])->name('sort.lowest_to_highest');
 });
 
+
+Route::group(['namespace' => 'Order', 'prefix' => 'order', 'middleware' => 'auth:api', 'as' => 'order.'], function(){
+    Route::get('store', [OrderStoreController::class, 'store'])->name('store');
+});

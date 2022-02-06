@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrderHistory;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {
@@ -50,5 +52,17 @@ class Controller extends BaseController
             "message" => $message
         ];
         return response()->json($response);
+    }
+
+    /**
+     * This method storing all transaction history
+    */
+    protected function orderHistory($order_tracking_no, $message){
+        $order_history                    = new OrderHistory();
+        $order_history->order_tracking_no = $order_tracking_no;
+        $order_history->message           = $message;
+        $order_history->date_time         = date('Y-m-d H:i:s');
+        $order_history->user_id           = Auth::user()->id;
+        $order_history->save();
     }
 }
