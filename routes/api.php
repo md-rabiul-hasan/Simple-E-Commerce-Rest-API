@@ -3,13 +3,15 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Customer\RegistrationController;
-use App\Http\Controllers\Order\OrderActionController;
 use App\Http\Controllers\Order\OrderApprovedController;
 use App\Http\Controllers\Order\OrderDeliveryController;
 use App\Http\Controllers\Order\OrderRejectedController;
 use App\Http\Controllers\Order\OrderStoreController;
 use App\Http\Controllers\Product\ProductController;
-use App\Http\Controllers\Product\ProductShowController;
+use App\Http\Controllers\Product\ProductHighestToLowestSortingController;
+use App\Http\Controllers\Product\ProductListController;
+use App\Http\Controllers\Product\ProductLowestToHighestSortingController;
+use App\Http\Controllers\Product\ProductSearchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,11 +42,11 @@ Route::group(['namespace' => 'Product', 'middleware' => 'auth:api', 'prefix' => 
 });
 
 Route::group(['namespace' => 'Product', 'prefix' => 'product', 'as' => 'product.'], function(){
-    Route:: get('index', [ProductShowController::class, 'index'])->name('index');
+    Route:: get('index', [ProductListController::class, 'index'])->name('index');
     Route:: get('{product}/show', [ProductController::class, 'show'])->name('show');
-    Route:: get('search/{product_name}', [ProductShowController::class, 'search'])->name('search');
-    Route:: get('sorting/highest-to-lowest', [ProductShowController::class, 'highestToLowest'])->name('sort.highest_to_lowest');
-    Route:: get('sorting/lowest-to-highest', [ProductShowController::class, 'lowestToHighest'])->name('sort.lowest_to_highest');
+    Route:: get('search/{product_name}', [ProductSearchController::class, 'search'])->name('search');
+    Route:: get('sorting/highest-to-lowest', [ProductHighestToLowestSortingController::class, 'highestToLowest'])->name('sort.highest_to_lowest');
+    Route:: get('sorting/lowest-to-highest', [ProductLowestToHighestSortingController::class, 'lowestToHighest'])->name('sort.lowest_to_highest');
 });
 
 
