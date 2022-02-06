@@ -18,9 +18,7 @@ class CreateOrderHistoriesTable extends Migration
             $table->string('order_tracking_no');
             $table->string('message');
             $table->dateTime('date_time');
-            $table->foreignId('user_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

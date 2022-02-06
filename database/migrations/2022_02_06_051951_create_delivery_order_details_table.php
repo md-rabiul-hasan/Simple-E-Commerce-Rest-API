@@ -15,12 +15,8 @@ class CreateDeliveryOrderDetailsTable extends Migration
     {
         Schema::create('delivery_order_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')
-                    ->constrained()
-                    ->onDelete('cascade');
-            $table->foreignId('delivery_order_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->foreignId('delivery_order_id')->constrained()->onDelete('cascade');
             $table->decimal('price', 10, 2)->default(0.00);
             $table->integer('qty');
             $table->timestamps();

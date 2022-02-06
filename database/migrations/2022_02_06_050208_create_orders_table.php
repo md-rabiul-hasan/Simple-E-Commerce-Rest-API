@@ -20,9 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_tracking_no')->unique();
             $table->date('date');
             $table->tinyInteger('status')->default(0)->comment('0: pending order, 1: approved order, 2: rejected order');
-            $table->foreignId('user_id')
-                    ->constrained()
-                    ->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
