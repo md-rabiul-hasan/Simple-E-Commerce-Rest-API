@@ -29,9 +29,8 @@ class ProductController extends Controller
         }
     }
 
-    public function show($product){
+    public function show(Product $product){
         try{
-            $product = Product::findOrFail($product);
             return $this->successApiResponse(200, 'Product Fetching Successfully', $product);
         }catch(Exception $e){
             return $this->failedApiResponse(500, $e->getMessage());
