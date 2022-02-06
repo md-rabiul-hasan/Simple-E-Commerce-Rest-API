@@ -22,12 +22,21 @@ class Controller extends BaseController
      * Formatted and return api success API response
     */
     public function successApiResponse($status, $message, $data = ''){
-        $response = [
-            "success" => true,
-            "status"  => $status,
-            "message" => $message,
-            "data"    => $data
-        ];
+        if(!empty($data)){
+            $response = [
+                "success" => true,
+                "status"  => $status,
+                "message" => $message,
+                "data"    => $data
+            ];
+        }else{
+            $response = [
+                "success" => true,
+                "status"  => $status,
+                "message" => $message
+            ];
+        }
+        
         return response()->json($response);
     }
 
