@@ -40,7 +40,7 @@ Route::group(['namespace' => 'Auth'], function(){
     Route::post('logout', [LogoutController::class, 'logout'])->middleware('auth:api')->name('logout');
 });
 
-Route::group(['namespace' => 'Product', 'prefix' => 'product', 'as' => 'product.'], function(){
+Route::group(['namespace' => 'Product', 'middleware' => 'auth:api', 'prefix' => 'product', 'as' => 'product.'], function(){
     Route:: post('store', [ProductController::class, 'store'])->name('store');
     Route:: get('{product}/show', [ProductController::class, 'show'])->name('show');
     Route:: post('{product}/update', [ProductController::class, 'update'])->name('update');
