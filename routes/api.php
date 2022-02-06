@@ -40,5 +40,6 @@ Route::group(['namespace' => 'Product', 'prefix' => 'product', 'as' => 'product.
     Route:: get('{product}/delete', [ProductController::class, 'delete'])->name('delete');
 
     Route::get('index', [ProductShowController::class, 'index'])->name('index');
+    Route::get('search/{product_name}', [ProductShowController::class, 'search'])->name('search');
 });
 

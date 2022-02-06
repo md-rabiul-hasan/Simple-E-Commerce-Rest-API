@@ -18,4 +18,13 @@ class ProductShowController extends Controller
         } 
     }
 
+    public function search($product_name){
+        try{
+            $products = Product::select(['id','name','description','price','qty','images','entry_date'])->where('name','LIKE','%'.$product_name.'%')->get();
+            return $this->successApiResponse(200, 'Product Searching Result', $products);
+        }catch(Exception $e){
+            return $this->failedApiResponse(500, $e->getMessage());
+        }         
+    }
+
 }
