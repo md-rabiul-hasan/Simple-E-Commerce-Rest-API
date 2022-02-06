@@ -6,6 +6,7 @@ use App\Http\Controllers\Customer\RegistrationController;
 use App\Http\Controllers\Order\OrderActionController;
 use App\Http\Controllers\Order\OrderApprovedController;
 use App\Http\Controllers\Order\OrderDeliveryController;
+use App\Http\Controllers\Order\OrderHistoryController;
 use App\Http\Controllers\Order\OrderRejectedController;
 use App\Http\Controllers\Order\OrderStoreController;
 use App\Http\Controllers\Product\ProductController;
@@ -56,5 +57,6 @@ Route::group(['namespace' => 'Order', 'prefix' => 'order', 'middleware' => 'auth
     Route:: post('approved', [OrderApprovedController::class, 'approved'])->name('approved');
     Route:: post('rejected', [OrderRejectedController::class, 'rejected'])->name('rejected');
     Route:: post('delivery', [OrderDeliveryController::class, 'delivery'])->name('delivery');
+    Route:: post('history', [OrderHistoryController::class, 'history'])->name('history');
     
 });
