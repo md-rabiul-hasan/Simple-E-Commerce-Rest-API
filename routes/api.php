@@ -41,5 +41,7 @@ Route::group(['namespace' => 'Product', 'prefix' => 'product', 'as' => 'product.
 
     Route::get('index', [ProductShowController::class, 'index'])->name('index');
     Route::get('search/{product_name}', [ProductShowController::class, 'search'])->name('search');
+    Route::get('sorting/highest-to-lowest', [ProductShowController::class, 'highestToLowest'])->name('sort.highest_to_lowest');
+    Route::get('sorting/lowest-to-highest', [ProductShowController::class, 'lowestToHighest'])->name('sort.lowest_to_highest');
 });
 
