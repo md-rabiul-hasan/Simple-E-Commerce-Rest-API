@@ -33,5 +33,8 @@ Route::group(['namespace' => 'Auth'], function(){
 });
 
 Route::group(['namespace' => 'Product', 'prefix' => 'product', 'as' => 'product.'], function(){
-    Route::post('store', [ProductController::class, 'store'])->name('store');
+    Route:: post('store', [ProductController::class, 'store'])->name('store');
+    Route:: get('{product}/show', [ProductController::class, 'show'])->name('show');
+    Route:: post('{product}/update', [ProductController::class, 'update'])->name('update');
+    Route:: get('{product}/delete', [ProductController::class, 'delete'])->name('delete');
 });
