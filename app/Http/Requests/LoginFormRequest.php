@@ -6,12 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-
-class CustomerRegistrationRequest extends FormRequest
+class LoginFormRequest extends FormRequest
 {
-    // protected $stopOnFirstFailure = true;
-
-    /**
+   /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -19,8 +16,7 @@ class CustomerRegistrationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'     => 'required',
-            'email'    => 'required|email|unique:users',
+            'email'    => 'required|email',
             'password' => 'required',
         ];
     } 
@@ -36,7 +32,6 @@ class CustomerRegistrationRequest extends FormRequest
             'name.required'   => 'Please enter your name',
             'email.required'  => 'Please enter your email',
             'email.email'     => 'Please enter valid email address',
-            'email.unique'    => 'Your email address already exists',
             'password.required' => 'Please enter your address',
         ];
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Customer\RegistrationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,5 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::group(['namespace' => 'Customer'], function(){
-    Route::post('customer/registration', [RegistrationController::class, 'registration'])->name('customer.registration');
+    Route::post('customer/registration', [RegistrationController::class, 'registration'])->name('customer.registration');    
+});
+
+Route::group(['namespace' => 'Auth'], function(){
+    Route::post('login', [LoginController::class, 'login'])->name('login');
 });
