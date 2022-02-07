@@ -71,7 +71,8 @@ class OrderDeliveryController extends Controller
         
         // order delivery mark
         Order::where('id', $order_id)->update([
-            "status" => 3
+            "status" => 3,
+            "date"   => date('Y-m-d')
         ]); 
     }
 

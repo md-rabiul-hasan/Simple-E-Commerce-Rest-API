@@ -7,6 +7,15 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+     /**
+     * The Artisan commands provided by your application.
+     *
+     * @var array
+     */
+    protected $commands = [
+        Commands\DeliveryCompleateShedular::class,
+    ];
+
     /**
      * Define the application's command schedule.
      *
@@ -15,6 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('delivery_backup:daily')->dailyAt('12:00');
         // $schedule->command('inspire')->hourly();
     }
 
