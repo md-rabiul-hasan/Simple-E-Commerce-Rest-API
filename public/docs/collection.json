@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "IBCS-Primax Laravel Developer Assignment",
-        "_postman_id": "cd3a29e7-284d-4d18-81a9-0e1ab32ec60a",
+        "_postman_id": "5b703eee-c6a1-4831-a489-8f9e33d0b3d3",
         "description": "This api documentation for IBCS Primax simple e-commerce assignment api documentation",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -381,7 +381,7 @@
                                 {
                                     "id": "product_name",
                                     "key": "product_name",
-                                    "value": "officiis",
+                                    "value": "repudiandae",
                                     "description": ""
                                 }
                             ]
@@ -643,6 +643,68 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "api\/order\/history",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/order\/history",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/order\/history"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"order_tracking_no\":\"molestiae\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/order\/search",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/order\/search",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/order\/search"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"order_tracking_no\":\"aut\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 }
             ]
         }

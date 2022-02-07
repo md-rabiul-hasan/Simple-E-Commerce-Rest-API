@@ -122,6 +122,12 @@
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-order-delivery">
                         <a href="#endpoints-POSTapi-order-delivery">Order Delivery</a>
                     </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-order-history">
+                        <a href="#endpoints-POSTapi-order-history">POST api/order/history</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-order-search">
+                        <a href="#endpoints-POSTapi-order-search">POST api/order/search</a>
+                    </li>
                                                     </ul>
                             </ul>
         
@@ -1491,14 +1497,14 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:8000/api/api/product/search/officiis" \
+    --get "http://127.0.0.1:8000/api/api/product/search/repudiandae" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/api/product/search/officiis"
+    "http://127.0.0.1:8000/api/api/product/search/repudiandae"
 );
 
 const headers = {
@@ -1515,7 +1521,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/api/product/search/officiis',
+    'http://127.0.0.1:8000/api/api/product/search/repudiandae',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1597,7 +1603,7 @@ print_r(json_decode((string) $body));</code></pre></div>
                 <input type="text"
                name="product_name"
                data-endpoint="GETapi-product-search--product_name-"
-               value="officiis"
+               value="repudiandae"
                data-component="url" hidden>
     <br>
 
@@ -2543,7 +2549,239 @@ print_r(json_decode((string) $body));</code></pre></div>
 <br>
 <p>The success of this API response is (<code>true</code> or <code>false</code>).</p>
         </p>
-        
+                <h2 id="endpoints-POSTapi-order-history">POST api/order/history</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-order-history">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/api/order/history" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"order_tracking_no\": \"molestiae\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/api/order/history"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order_tracking_no": "molestiae"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/api/order/history',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'order_tracking_no' =&gt; 'molestiae',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-order-history">
+</span>
+<span id="execution-results-POSTapi-order-history" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-order-history"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-order-history"></code></pre>
+</span>
+<span id="execution-error-POSTapi-order-history" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-order-history"></code></pre>
+</span>
+<form id="form-POSTapi-order-history" data-method="POST"
+      data-path="api/order/history"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-order-history', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-order-history"
+                    onclick="tryItOut('POSTapi-order-history');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-order-history"
+                    onclick="cancelTryOut('POSTapi-order-history');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-order-history" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/order/history</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>order_tracking_no</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="order_tracking_no"
+               data-endpoint="POSTapi-order-history"
+               value="molestiae"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="endpoints-POSTapi-order-search">POST api/order/search</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-order-search">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/api/order/search" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"order_tracking_no\": \"aut\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/api/order/search"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order_tracking_no": "aut"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/api/order/search',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'order_tracking_no' =&gt; 'aut',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-order-search">
+</span>
+<span id="execution-results-POSTapi-order-search" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-order-search"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-order-search"></code></pre>
+</span>
+<span id="execution-error-POSTapi-order-search" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-order-search"></code></pre>
+</span>
+<form id="form-POSTapi-order-search" data-method="POST"
+      data-path="api/order/search"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-order-search', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-order-search"
+                    onclick="tryItOut('POSTapi-order-search');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-order-search"
+                    onclick="cancelTryOut('POSTapi-order-search');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-order-search" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/order/search</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>order_tracking_no</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="order_tracking_no"
+               data-endpoint="POSTapi-order-search"
+               value="aut"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+    
 
         
     </div>

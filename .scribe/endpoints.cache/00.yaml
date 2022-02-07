@@ -492,7 +492,7 @@ endpoints:
         name: product_name
         description: ''
         required: true
-        example: officiis
+        example: repudiandae
         type: string
         custom: []
     queryParameters: []
@@ -822,3 +822,51 @@ endpoints:
         name: success
         description: 'The success of this API response is (`true` or `false`).'
         type: boolean
+  -
+    httpMethods:
+      - POST
+    uri: api/order/history
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      order_tracking_no:
+        name: order_tracking_no
+        description: ''
+        required: true
+        example: molestiae
+        type: string
+        custom: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/order/search
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      order_tracking_no:
+        name: order_tracking_no
+        description: ''
+        required: true
+        example: aut
+        type: string
+        custom: []
+    responses: []
+    responseFields: []

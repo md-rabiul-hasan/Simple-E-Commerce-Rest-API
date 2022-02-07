@@ -44,13 +44,14 @@ class OrderStoreController extends Controller
             $order->save();
             $this->insertOrderDetails($order->id, $request->input('items')); // insert order details
             $this->orderHistory($order->order_tracking_no, "Order Confirmed"); // insert order log
+            $this->sendOrderNotificationQueue($order->order_tracking_no); // send order notification in queue for admin notify
             return $this->successApiResponse(200, 'Order Confirmed Successfully', ["order_tracking_no" => $order->order_tracking_no]);
         }catch(Exception $e){
             return $this->failedApiResponse(500, $e->getMessage());
         }
     }
 
-    public function insertOrderDetails($order_id, $items){        
+    private function insertOrderDetails($order_id, $items){        
         for($i=0; $i < count($items); $i++){
             $order_details             = new OrderDetail();
             $order_details->product_id = $items[$i]['product_id'];
@@ -59,5 +60,17 @@ class OrderStoreController extends Controller
             $order_details->qty        = $items[$i]['qty'];
             $order_details->save();
         }
+    }
+
+    private function sendOrderNotificationQueue($order_tracking_no){
+        $data = [
+            'name'              => "Rabiul Hasan",
+            'email'             => "rabiul.fci@gmail.com",
+            'subject'           => "New Order Confirmed",
+            'message'           => "One new order coming in your e-commerce.Please see details",
+            'order_tracking_no' => $order_tracking_no
+        ];
+        $sendEmailJob = new \App\Jobs\OrderNotificationJob($data);
+        dispatch($sendEmailJob);
     }
 }

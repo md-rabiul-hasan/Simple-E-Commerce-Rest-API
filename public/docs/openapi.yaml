@@ -760,7 +760,7 @@ paths:
         in: path
         name: product_name
         description: ''
-        example: officiis
+        example: repudiandae
         required: true
         schema:
           type: string
@@ -1231,6 +1231,78 @@ paths:
                   type: string
                   description: 'required. Every order tracking number is unique'
                   example: 62003816439d2
+  /api/order/history:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order_tracking_no:
+                  type: string
+                  description: ''
+                  example: molestiae
+              required:
+                - order_tracking_no
+      security: []
+  /api/order/search:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order_tracking_no:
+                  type: string
+                  description: ''
+                  example: aut
+              required:
+                - order_tracking_no
+      security: []
 tags:
   -
     name: Endpoints
