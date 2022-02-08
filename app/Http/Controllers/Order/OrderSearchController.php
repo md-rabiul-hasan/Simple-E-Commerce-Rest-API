@@ -10,6 +10,27 @@ use Illuminate\Http\Request;
 
 class OrderSearchController extends Controller
 {
+     /**
+     * Order Search
+     * @authenticated
+     * @header Authorization bearer your-token
+     * @responseField success The success of this API response is (`true` or `false`).
+     * 
+     * @bodyParam  order_tracking_no string required. Every order tracking number is unique Example: 62003816439d2
+     * @response 200{
+     *       "success": true,
+     *       "status": 200,
+     *       "message": "Order Searching Result",
+     *      "data": {
+     *          "id": 7,
+     *          "amount": "100.00",
+     *          "shipping_address": "Fokirapool, Dhaka, Bangladesh",
+     *          "order_tracking_no": "6200220e07f43",
+     *          "date": "2022-02-06",
+     *          "status": 3
+     *      }
+     *  }
+     */
     public function search(OrderActionRequest $request){
         $order_tracking_no = $request->input('order_tracking_no');  
         try{

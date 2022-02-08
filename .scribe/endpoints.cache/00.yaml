@@ -492,7 +492,7 @@ endpoints:
         name: product_name
         description: ''
         required: true
-        example: repudiandae
+        example: error
         type: string
         custom: []
     queryParameters: []
@@ -827,46 +827,101 @@ endpoints:
       - POST
     uri: api/order/history
     metadata:
-      title: ''
+      title: 'Order History'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'bearer your-token'
     urlParameters: []
     queryParameters: []
     bodyParameters:
       order_tracking_no:
         name: order_tracking_no
-        description: ''
-        required: true
-        example: molestiae
+        description: 'required. Every order tracking number is unique'
+        required: false
+        example: 62003816439d2
         type: string
         custom: []
-    responses: []
-    responseFields: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+               "success": true,
+               "status": 200,
+               "message": "Order Delivery Successfully",
+               "data": [
+                    {
+                        "message": "Order Confirmed",
+                        "user_name": "Rabiul Hasan",
+                        "date_time": "2022-02-06 21:25:34"
+                   },
+                   {
+                       "message": "Order Approved",
+                       "user_name": "Rabiul Hasan",
+                        "date_time": "2022-02-06 21:26:24"
+                    },
+                   {
+                        "message": "Order Delivery Complete",
+                        "user_name": "Rabiul Hasan",
+                        "date_time": "2022-02-06 21:26:37"
+                    },
+               ]
+            }
+        headers: []
+        description: '200'
+    responseFields:
+      success:
+        name: success
+        description: 'The success of this API response is (`true` or `false`).'
+        type: ''
   -
     httpMethods:
       - POST
     uri: api/order/search
     metadata:
-      title: ''
+      title: 'Order Search'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
+      Authorization: 'bearer your-token'
     urlParameters: []
     queryParameters: []
     bodyParameters:
       order_tracking_no:
         name: order_tracking_no
-        description: ''
-        required: true
-        example: aut
+        description: 'required. Every order tracking number is unique'
+        required: false
+        example: 62003816439d2
         type: string
         custom: []
-    responses: []
-    responseFields: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+                "success": true,
+                "status": 200,
+                "message": "Order Searching Result",
+               "data": {
+                   "id": 7,
+                   "amount": "100.00",
+                   "shipping_address": "Fokirapool, Dhaka, Bangladesh",
+                   "order_tracking_no": "6200220e07f43",
+                   "date": "2022-02-06",
+                   "status": 3
+               }
+           }
+        headers: []
+        description: '200'
+    responseFields:
+      success:
+        name: success
+        description: 'The success of this API response is (`true` or `false`).'
+        type: boolean

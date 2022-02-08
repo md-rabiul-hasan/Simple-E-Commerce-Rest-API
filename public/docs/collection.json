@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "IBCS-Primax Laravel Developer Assignment",
-        "_postman_id": "5b703eee-c6a1-4831-a489-8f9e33d0b3d3",
+        "_postman_id": "4e0fd00a-48f6-4191-bff0-076b0036ad58",
         "description": "This api documentation for IBCS Primax simple e-commerce assignment api documentation",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -381,7 +381,7 @@
                                 {
                                     "id": "product_name",
                                     "key": "product_name",
-                                    "value": "repudiandae",
+                                    "value": "error",
                                     "description": ""
                                 }
                             ]
@@ -645,7 +645,7 @@
                     ]
                 },
                 {
-                    "name": "api\/order\/history",
+                    "name": "Order History",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -662,21 +662,29 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "bearer your-token"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"order_tracking_no\":\"molestiae\"}"
+                            "raw": "{\"order_tracking_no\":\"62003816439d2\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n     \"success\": true,\n     \"status\": 200,\n     \"message\": \"Order Delivery Successfully\",\n     \"data\": [\n          {\n              \"message\": \"Order Confirmed\",\n              \"user_name\": \"Rabiul Hasan\",\n              \"date_time\": \"2022-02-06 21:25:34\"\n         },\n         {\n             \"message\": \"Order Approved\",\n             \"user_name\": \"Rabiul Hasan\",\n              \"date_time\": \"2022-02-06 21:26:24\"\n          },\n         {\n              \"message\": \"Order Delivery Complete\",\n              \"user_name\": \"Rabiul Hasan\",\n              \"date_time\": \"2022-02-06 21:26:37\"\n          },\n     ]\n  }",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "api\/order\/search",
+                    "name": "Order Search",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -693,18 +701,26 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "bearer your-token"
                             }
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"order_tracking_no\":\"aut\"}"
+                            "raw": "{\"order_tracking_no\":\"62003816439d2\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n      \"success\": true,\n      \"status\": 200,\n      \"message\": \"Order Searching Result\",\n     \"data\": {\n         \"id\": 7,\n         \"amount\": \"100.00\",\n         \"shipping_address\": \"Fokirapool, Dhaka, Bangladesh\",\n         \"order_tracking_no\": \"6200220e07f43\",\n         \"date\": \"2022-02-06\",\n         \"status\": 3\n     }\n }",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         }

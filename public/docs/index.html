@@ -123,10 +123,10 @@
                         <a href="#endpoints-POSTapi-order-delivery">Order Delivery</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-order-history">
-                        <a href="#endpoints-POSTapi-order-history">POST api/order/history</a>
+                        <a href="#endpoints-POSTapi-order-history">Order History</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-order-search">
-                        <a href="#endpoints-POSTapi-order-search">POST api/order/search</a>
+                        <a href="#endpoints-POSTapi-order-search">Order Search</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -140,7 +140,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: February 6 2022</li>
+        <li>Last updated: February 8 2022</li>
     </ul>
 </div>
 
@@ -1497,14 +1497,14 @@ print_r(json_decode((string) $body));</code></pre></div>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://127.0.0.1:8000/api/api/product/search/repudiandae" \
+    --get "http://127.0.0.1:8000/api/api/product/search/error" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/api/product/search/repudiandae"
+    "http://127.0.0.1:8000/api/api/product/search/error"
 );
 
 const headers = {
@@ -1521,7 +1521,7 @@ fetch(url, {
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://127.0.0.1:8000/api/api/product/search/repudiandae',
+    'http://127.0.0.1:8000/api/api/product/search/error',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -1603,7 +1603,7 @@ print_r(json_decode((string) $body));</code></pre></div>
                 <input type="text"
                name="product_name"
                data-endpoint="GETapi-product-search--product_name-"
-               value="repudiandae"
+               value="error"
                data-component="url" hidden>
     <br>
 
@@ -2549,9 +2549,10 @@ print_r(json_decode((string) $body));</code></pre></div>
 <br>
 <p>The success of this API response is (<code>true</code> or <code>false</code>).</p>
         </p>
-                <h2 id="endpoints-POSTapi-order-history">POST api/order/history</h2>
+                <h2 id="endpoints-POSTapi-order-history">Order History</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -2565,8 +2566,9 @@ print_r(json_decode((string) $body));</code></pre></div>
     "http://127.0.0.1:8000/api/api/order/history" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: bearer your-token" \
     --data "{
-    \"order_tracking_no\": \"molestiae\"
+    \"order_tracking_no\": \"62003816439d2\"
 }"
 </code></pre></div>
 
@@ -2579,10 +2581,11 @@ print_r(json_decode((string) $body));</code></pre></div>
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "bearer your-token",
 };
 
 let body = {
-    "order_tracking_no": "molestiae"
+    "order_tracking_no": "62003816439d2"
 };
 
 fetch(url, {
@@ -2600,9 +2603,10 @@ $response = $client-&gt;post(
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'bearer your-token',
         ],
         'json' =&gt; [
-            'order_tracking_no' =&gt; 'molestiae',
+            'order_tracking_no' =&gt; '62003816439d2',
         ],
     ]
 );
@@ -2612,7 +2616,35 @@ print_r(json_decode((string) $body));</code></pre></div>
 </span>
 
 <span id="example-responses-POSTapi-order-history">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+     &quot;success&quot;: true,
+     &quot;status&quot;: 200,
+     &quot;message&quot;: &quot;Order Delivery Successfully&quot;,
+     &quot;data&quot;: [
+          {
+              &quot;message&quot;: &quot;Order Confirmed&quot;,
+              &quot;user_name&quot;: &quot;Rabiul Hasan&quot;,
+              &quot;date_time&quot;: &quot;2022-02-06 21:25:34&quot;
+         },
+         {
+             &quot;message&quot;: &quot;Order Approved&quot;,
+             &quot;user_name&quot;: &quot;Rabiul Hasan&quot;,
+              &quot;date_time&quot;: &quot;2022-02-06 21:26:24&quot;
+          },
+         {
+              &quot;message&quot;: &quot;Order Delivery Complete&quot;,
+              &quot;user_name&quot;: &quot;Rabiul Hasan&quot;,
+              &quot;date_time&quot;: &quot;2022-02-06 21:26:37&quot;
+          },
+     ]
+  }</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-order-history" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-order-history"></span>:
@@ -2625,10 +2657,10 @@ print_r(json_decode((string) $body));</code></pre></div>
 </span>
 <form id="form-POSTapi-order-history" data-method="POST"
       data-path="api/order/history"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"bearer your-token"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-order-history', this);">
     <h3>
@@ -2652,22 +2684,38 @@ print_r(json_decode((string) $body));</code></pre></div>
             <small class="badge badge-black">POST</small>
             <b><code>api/order/history</code></b>
         </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+                <p>
+            <label id="auth-POSTapi-order-history" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-order-history"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>order_tracking_no</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+            <b><code>order_tracking_no</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="order_tracking_no"
                data-endpoint="POSTapi-order-history"
-               value="molestiae"
+               value="62003816439d2"
                data-component="body" hidden>
     <br>
-
+<p>required. Every order tracking number is unique</p>
         </p>
         </form>
 
-            <h2 id="endpoints-POSTapi-order-search">POST api/order/search</h2>
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+            <p>
+            <b><code>success</code></b>&nbsp;&nbsp;  &nbsp;
+<br>
+<p>The success of this API response is (<code>true</code> or <code>false</code>).</p>
+        </p>
+                <h2 id="endpoints-POSTapi-order-search">Order Search</h2>
 
 <p>
+<small class="badge badge-darkred">requires authentication</small>
 </p>
 
 
@@ -2681,8 +2729,9 @@ print_r(json_decode((string) $body));</code></pre></div>
     "http://127.0.0.1:8000/api/api/order/search" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --header "Authorization: bearer your-token" \
     --data "{
-    \"order_tracking_no\": \"aut\"
+    \"order_tracking_no\": \"62003816439d2\"
 }"
 </code></pre></div>
 
@@ -2695,10 +2744,11 @@ print_r(json_decode((string) $body));</code></pre></div>
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "Authorization": "bearer your-token",
 };
 
 let body = {
-    "order_tracking_no": "aut"
+    "order_tracking_no": "62003816439d2"
 };
 
 fetch(url, {
@@ -2716,9 +2766,10 @@ $response = $client-&gt;post(
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'bearer your-token',
         ],
         'json' =&gt; [
-            'order_tracking_no' =&gt; 'aut',
+            'order_tracking_no' =&gt; '62003816439d2',
         ],
     ]
 );
@@ -2728,7 +2779,26 @@ print_r(json_decode((string) $body));</code></pre></div>
 </span>
 
 <span id="example-responses-POSTapi-order-search">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;success&quot;: true,
+    &quot;status&quot;: 200,
+    &quot;message&quot;: &quot;Order Searching Result&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 7,
+        &quot;amount&quot;: &quot;100.00&quot;,
+        &quot;shipping_address&quot;: &quot;Fokirapool, Dhaka, Bangladesh&quot;,
+        &quot;order_tracking_no&quot;: &quot;6200220e07f43&quot;,
+        &quot;date&quot;: &quot;2022-02-06&quot;,
+        &quot;status&quot;: 3
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-order-search" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-order-search"></span>:
@@ -2741,10 +2811,10 @@ print_r(json_decode((string) $body));</code></pre></div>
 </span>
 <form id="form-POSTapi-order-search" data-method="POST"
       data-path="api/order/search"
-      data-authed="0"
+      data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json","Authorization":"bearer your-token"}'
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-order-search', this);">
     <h3>
@@ -2768,20 +2838,35 @@ print_r(json_decode((string) $body));</code></pre></div>
             <small class="badge badge-black">POST</small>
             <b><code>api/order/search</code></b>
         </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+                <p>
+            <label id="auth-POSTapi-order-search" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-order-search"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <p>
-            <b><code>order_tracking_no</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+            <b><code>order_tracking_no</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
                 <input type="text"
                name="order_tracking_no"
                data-endpoint="POSTapi-order-search"
-               value="aut"
+               value="62003816439d2"
                data-component="body" hidden>
     <br>
-
+<p>required. Every order tracking number is unique</p>
         </p>
         </form>
 
-    
+    <h3>Response</h3>
+    <h4 class="fancy-heading-panel"><b>Response Fields</b></h4>
+            <p>
+            <b><code>success</code></b>&nbsp;&nbsp;<small>boolean</small>  &nbsp;
+<br>
+<p>The success of this API response is (<code>true</code> or <code>false</code>).</p>
+        </p>
+        
 
         
     </div>
